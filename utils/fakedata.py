@@ -13,8 +13,9 @@ def create_tree(root_dir='files/', file_list=[]):
             subdir = Path(files, file['folder'])
             print(f'createtree | mkdir {subdir}')
             subdir.mkdir(exist_ok=True)
-            path = Path(subdir, file['name'])
         else:
-            path = Path(file['name'])
+            subdir = Path(files)
+
+        path = Path(subdir, file['name'])
         print(f'createtree | create file  {path}')
         path.write_text(file['content'])
