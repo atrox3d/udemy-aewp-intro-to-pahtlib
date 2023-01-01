@@ -14,7 +14,7 @@ rm.rmtree('files/')
 file_list = fakedata.load_data('data/rename-files.csv')
 fakedata.create_tree('files/', file_list)
 
-files = Path('files')
+files = Path('files/')
 
 # create text files and write content
 for file in file_list:
