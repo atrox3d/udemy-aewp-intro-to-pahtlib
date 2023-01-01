@@ -1,4 +1,5 @@
 from pathlib import Path
+import pandas as pd
 
 
 def create_tree(root_dir='files/', file_list=None):
@@ -21,3 +22,13 @@ def create_tree(root_dir='files/', file_list=None):
         path = Path(subdir, file['name'])
         print(f'createtree | create file  {path}')
         path.write_text(file['content'])
+
+
+def load_data(filename):
+    df = pd.read_csv(filename, dtype=str)
+    d = df.to_dict(orient='records')
+    return d
+
+
+if __name__ == '__main__':
+    load_data('../rename-files.csv')
