@@ -1,14 +1,14 @@
 from pathlib import Path
+from utils import rm, fakedata
 
 here = Path()
 
-# create files/ subdir
-files = Path('files')
-files.mkdir(exist_ok=True)
-
 # cleanup files/ for this execution
-for file in files.iterdir():
-    file.unlink(missing_ok=True)
+rm.rmtree('files/')
+
+# create files/ subdir
+# files = Path('files')
+# files.mkdir(exist_ok=True)
 
 # prepare data for files creation
 file_list = [
@@ -16,6 +16,9 @@ file_list = [
     dict(name='def.txt', content='def content'),
     dict(name='ghi.txt', content='ghi content'),
 ]
+fakedata.create_tree('files/', file_list)
+
+files = Path('files')
 
 # create text files and write content
 for file in file_list:

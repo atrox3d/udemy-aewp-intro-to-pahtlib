@@ -9,8 +9,16 @@ root_dir = Path('files/')
 # remove files/
 rm.rmall(root_dir)
 
+# prepare data for files creation
+file_list = [
+    dict(folder='november', name='abc.txt', content='abc content'),
+    dict(folder='november', name='def.txt', content='def content'),
+    dict(folder='december', name='ghi.txt', content='ghi content'),
+    dict(folder='december', name='jkl.txt', content='jkl content'),
+]
+
 # create dirs and files
-fakedata.create_tree(root_dir)
+fakedata.create_tree(root_dir, file_list)
 
 
 pattern = '**/*'
