@@ -1,8 +1,10 @@
 from pathlib import Path
 
 
-def create_tree(root_dir='files/', file_list=[]):
+def create_tree(root_dir='files/', file_list=None):
     # create files/
+    file_list = file_list or []
+
     files = Path(root_dir)
     print(f'createtree | mkdir {root_dir}')
     files.mkdir(exist_ok=True)
