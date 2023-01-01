@@ -11,7 +11,7 @@ rm.rmtree('files/')
 # files.mkdir(exist_ok=True)
 
 # prepare data for files creation
-file_list = fakedata.load_data('rename-files.csv')
+file_list = fakedata.load_data('data/rename-files.csv')
 fakedata.create_tree('files/', file_list)
 
 files = Path('files')

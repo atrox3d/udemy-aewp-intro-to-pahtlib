@@ -4,13 +4,13 @@ from utils import rm, fakedata
 
 here = Path()
 
-root_dir = Path('files/')
+root_dir = Path('../files/')
 
 # remove files/
 rm.rmall(root_dir)
 
 # prepare data for files creation
-file_list = fakedata.load_data('rename-files-with-folders.csv')
+file_list = fakedata.load_data('data/rename-files-with-folders.csv')
 # create dirs and files
 fakedata.create_tree(root_dir, file_list)
 

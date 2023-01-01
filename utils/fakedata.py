@@ -31,4 +31,4 @@ def load_data(filename):
 
 
 if __name__ == '__main__':
-    load_data('../rename-files.csv')
+    load_data('../data/rename-files.csv')
