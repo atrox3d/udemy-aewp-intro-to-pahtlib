@@ -21,7 +21,11 @@ def create_tree(root_dir='files/', file_list=None):
 
         path = Path(subdir, file['name'])
         print(f'createtree | create file  {path}')
-        path.write_text(file['content'])
+        if 'content' in file.keys():
+            content = file['content']
+        else:
+            content = ''
+        path.write_text(content)
 
 
 def load_data(filename):
