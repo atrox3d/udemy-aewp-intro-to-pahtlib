@@ -22,25 +22,24 @@ def rmtree(path_name):
 
 
 def rmall(pathname):
-    path = Path(pathname)
-    print(f'rmtree | {path=}')
+    root = Path(pathname)
+    print(f'rmtree | {root=}')
     pattern = '**/*'
-    print(f'rmtree | {pattern=}')
+    print(f'rmtree | {root=}')
 
-    file_paths = path.glob(pattern)
+    file_paths = root.glob(pattern)
     files = [item for item in file_paths if item.is_file()]
     for f in files:
         print(f'rmtree | unlink {f}')
         f.unlink()
 
-    file_paths = path.glob(pattern)
+    file_paths = root.glob(pattern)
     dirs = [item for item in file_paths if item.is_dir()]
     dirs = sorted(dirs, key=lambda d: str(d.as_posix()).count('/'), reverse=True)
     for d in dirs:
         print(f'rmtree | rmdir {d}')
         d.rmdir()
-
-
+    root.rmdir()
 
 
 if __name__ == '__main__':
