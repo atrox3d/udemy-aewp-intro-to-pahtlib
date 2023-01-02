@@ -20,9 +20,9 @@ file_paths = root_dir.glob(pattern)
 for path in file_paths:
     if path.is_file():
         print(path)
-        parent_folder = path.parts[-3] + '-' + path.parts[-2]
-        print(parent_folder)
-        new_filename = parent_folder + '-' + path.name
+        sub_folders = path.parts[1:-1]
+        print(sub_folders)
+        new_filename = '-'.join(sub_folders) + '-' + path.name
         new_path = path.with_name(new_filename)
         print(new_path)
         path.rename(new_path)
